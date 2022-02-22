@@ -16,6 +16,7 @@ let numero;
 let i = 0;
 let time = 30;
 let clock = 0;
+const numeriUtente = [];
 
 //genero 5 numeri random da 1 a 100
 do {
@@ -33,6 +34,7 @@ console.log(numeriRandom);
 
 
 // Dopo la chiusura dell’alert parte un timer di 30 secondi.
+// Alla fine dei 30 secondi l’utente dovrà inserire, uno alla volta, i numeri che ha visto precedentemente
 
 //creo funzioni per far partire e fermare il timer
 function start () {
@@ -42,12 +44,25 @@ function start () {
         time--;
 
         if (time === 0) {
-            clearInterval( clock );
             numeri.innerHTML = "Tempo scaduto!";
-        } else {
+
+            
+
+        } else if (time == -2){
+            
+            clearInterval( clock );
+
+            while (numeriUtente.length < 5 ) {
+                numero = parseInt( prompt("Inserisci uno dei numeri che ricordi") );
+                
+                numeriUtente.push(numero);
+            }
+            
+        } else if (time > 0) {
             numeri.innerHTML = time;
             testo.innerHTML = "";
             bottone.style.display = "none";
+
         }
 
     }, 1000);
@@ -57,5 +72,6 @@ function start () {
 
 bottone.addEventListener("click" , start );
 
-// Alla fine dei 30 secondi l’utente dovrà inserire, uno alla volta, i numeri che ha visto precedentemente
+console.log(numeriUtente);
+
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri sono stati individuati.
