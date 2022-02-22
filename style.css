@@ -3,3 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-color: rgb(129, 176, 191);
+    color: white;
+}
+
+.btn{
+    width: 100px;
+}
+
+#numeri{
+    font-size: 30px;
+}
